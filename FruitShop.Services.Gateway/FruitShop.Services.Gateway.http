@@ -1,0 +1,6 @@
+@FruitShop.Services.Gateway_HostAddress = http://localhost:5255
+
+GET {{FruitShop.Services.Gateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
