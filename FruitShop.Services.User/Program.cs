@@ -1,6 +1,4 @@
-using FShop.Business.Base;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -10,9 +8,6 @@ var configuration = builder.Configuration;
 configuration.AddJsonFile("appsettings.json", true, true);
 var service = builder.Services;
 // Add services to the container.
-service.Configure<MongoDBSettings>(configuration.GetSection("MongoDatabase"));
-service.AddSingleton<IMongoDBSettings>(sp => sp.GetRequiredService<IOptions<MongoDBSettings>>().Value);
-service.AddScoped<IMongoDBContext, MongoContext>();
 service.AddCors(option =>
 {
     option.AddPolicy("MyPolicy", builder =>

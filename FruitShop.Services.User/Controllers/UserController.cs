@@ -6,28 +6,22 @@ namespace FruitShop.Services.User.Controllers
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
+        [HttpPost("test")]
+        public async Task<IActionResult> Test()
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
-        private readonly ILogger<UserController> _logger;
-
-        public UserController(ILogger<UserController> logger)
-        {
-            _logger = logger;
-        }
-
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            var cookieOptions = new CookieOptions
             {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+                // Set the cookie properties
+                Path = "/",
+                Expires = DateTime.UtcNow.AddDays(7),
+                Secure = false, // Use "false" if not using HTTPS
+                HttpOnly = true,
+                Domain = "localhost",
+                SameSite = SameSiteMode.None
+            };
+
+            Response.Cookies.Append("testCookie", "Cookie content", cookieOptions);
+            return Ok("OK");
         }
     }
 }

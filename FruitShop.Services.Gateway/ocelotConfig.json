@@ -28,22 +28,6 @@
         "AllowedScopes": [],
       }
     },
-    {
-      "DownstreamPathTemplate": "/api/Fruit/all",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 8002
-        }
-      ],
-      "UpstreamPathTemplate": "/Fruit",
-      "UpstreamHttpMethod": [ "POST" ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
-      }
-    }
   ],
   "GlobalConfiguration": {
     "BaseUrl":  "https://localhost:8000"
