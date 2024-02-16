@@ -19,34 +19,34 @@ service.AddCors(option =>
     });
 });
 
-#region Service Config
-service.Configure<CookiePolicyOptions>(options =>
-{
-    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-    options.CheckConsentNeeded = context => true;
-    options.MinimumSameSitePolicy = SameSiteMode.Strict;
-});
-#endregion
-#region Authen
-var jwtSerect = Encoding.ASCII.GetBytes(configuration.GetSection("JWTSerect").Value);
-service.AddAuthentication(option =>
-{
-    option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-    .AddJwtBearer(options =>
-    {
-        options.RequireHttpsMetadata = false;
-        options.SaveToken = true;
-        options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-        {
-            IssuerSigningKey = new SymmetricSecurityKey(jwtSerect),
-            ValidateIssuerSigningKey = true,
-            ValidateIssuer = false,
-            ValidateAudience = false,
-        };
-    });
-#endregion
+//#region Service Config
+//service.Configure<CookiePolicyOptions>(options =>
+//{
+//    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+//    options.CheckConsentNeeded = context => true;
+//    options.MinimumSameSitePolicy = SameSiteMode.Strict;
+//});
+//#endregion
+//#region Authen
+//var jwtSerect = Encoding.ASCII.GetBytes(configuration.GetSection("JWTSerect").Value);
+//service.AddAuthentication(option =>
+//{
+//    option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+//    option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+//})
+//    .AddJwtBearer(options =>
+//    {
+//        options.RequireHttpsMetadata = false;
+//        options.SaveToken = true;
+//        options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+//        {
+//            IssuerSigningKey = new SymmetricSecurityKey(jwtSerect),
+//            ValidateIssuerSigningKey = true,
+//            ValidateIssuer = false,
+//            ValidateAudience = false,
+//        };
+//    });
+//#endregion
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
