@@ -10,10 +10,11 @@
         }
       ],
       "UpstreamPathTemplate": "/User/LoginAsync",
-      "UpstreamHttpMethod": [ "POST" ]
+      "UpstreamHttpMethod": [ "POST" ],
+      "Priority": 2
     },
     {
-      "DownstreamPathTemplate": "/api/User/all",
+      "DownstreamPathTemplate": "/api/User/RegisterAsync",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -21,13 +22,27 @@
           "Port": 8001
         }
       ],
-      "UpstreamPathTemplate": "/User",
+      "UpstreamPathTemplate": "/User/RegisterAsync",
       "UpstreamHttpMethod": [ "POST" ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": [],
-      }
+      "Priority": 2
     },
+    {
+      "DownstreamPathTemplate": "/api/User/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8001
+        }
+      ],
+      "UpstreamPathTemplate": "/User/{everything}",
+      "UpstreamHttpMethod": [ "POST" ],
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": []
+      //},
+      "Priority": 1
+    }
   ],
   "GlobalConfiguration": {
     "BaseUrl":  "https://localhost:8000"

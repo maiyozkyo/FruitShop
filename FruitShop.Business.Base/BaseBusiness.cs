@@ -11,9 +11,11 @@ namespace Shoping.Business
         public UnitOfWork<TEntity> UnitOfWork { get; set; }
         public Repository<TEntity> Repository { get; set; }
 
-        public BaseBusiness(string _dbName, IConfiguration iConfiguration)
+        public BaseBusiness(/*string _dbName, */IConfiguration iConfiguration)
         {
-            var type = iConfiguration.GetSection("Database").GetSection("DBType").Value;
+            var dbSection = iConfiguration.GetSection("Database");
+            var type = dbSection?.GetSection("DBType").Value;
+            var _dbName = dbSection?.GetSection("DBName").Value;
             DbContext dbContext = null;
             switch (type)
             {
@@ -33,7 +35,7 @@ namespace Shoping.Business
                     }
                 default:
                 {
-                    throw new Exception("Không có loại DB");
+                    throw new Exception($"Không có loại DataBase {type}");
                 }
             }
             UnitOfWork = new UnitOfWork<TEntity>(dbContext);

@@ -6,4 +6,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.3.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FruitShop.Business.Base\FruitShop.Business.Base.csproj" />
+    <ProjectReference Include="..\FruitShop.Domain.Models\FruitShop.Domain.Models.csproj" />
+  </ItemGroup>
+
 </Project>

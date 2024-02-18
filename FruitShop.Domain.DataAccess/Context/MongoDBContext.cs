@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shoping.Data_Access.DB.MongoDB
 {
@@ -15,7 +10,7 @@ namespace Shoping.Data_Access.DB.MongoDB
 
         public MongoDBContext(IConfiguration iConfiguration, string databaseName)
         {
-            _connectionString = iConfiguration.GetSection("Database").GetSection("MongoDatabase").Value;
+            _connectionString = iConfiguration.GetSection("Database").GetSection("ConnectionString").Value;
             _databaseName = databaseName;
         }
 
