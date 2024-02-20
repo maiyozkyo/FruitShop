@@ -47,18 +47,19 @@ namespace FruitShop.Services.User.Controllers
                 var loginUser = await IUserBusiness.LoginAsync(phone, pw);
                 if (loginUser != null)
                 {
-                    var cookieOptions = new CookieOptions()
+                    var cookieOptions = new CookieOptions
                     {
+                        // Set the cookie properties
+                        Path = "/",
+                        Expires = DateTime.UtcNow.AddHours(1),
+                        Secure = true, // Use "false" if not using HTTPS
                         HttpOnly = true,
-                        IsEssential = true,
-                        Secure = true,
-                        SameSite = SameSiteMode.None,
-                        Domain = "localhost", //using https://localhost:44340/ here doesn't work
-                        Expires = DateTime.UtcNow.AddDays(14)
+                        Domain = "localhost",
+                        SameSite = SameSiteMode.None
                     };
 
-
-                    Response.Cookies.Append("testCookie", "Cookie content", cookieOptions);
+                    Response.Cookies.Append("fshoplg", loginUser.Token, cookieOptions);
+                    loginUser.Token = "";
                     return Ok(loginUser);
                 }
                 else
@@ -66,7 +67,7 @@ namespace FruitShop.Services.User.Controllers
                     return NotFound("Không tìm thấy user");
                 }
             }
-            return BadRequest("Sai");
+            return Unauthorized();
         }
 
         [HttpPost("RegisterAsync")]
@@ -99,6 +100,13 @@ namespace FruitShop.Services.User.Controllers
                 return Ok(res);
             }
             return NotFound();
+        }
+
+        [HttpPost("LogoutAsync")]
+        public async Task<IActionResult> LogoutAsync(RequestMsg requestMsg)
+        {
+            Response.Cookies.Delete("fshoplg");
+            return Ok(true);
         }
     }
 }

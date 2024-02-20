@@ -19,9 +19,12 @@ service.AddCors(option =>
 {
     option.AddPolicy("MyPolicy", builder =>
     {
-        builder.AllowAnyOrigin()
+        builder
+        .AllowCredentials()
         .AllowAnyMethod()
-        .AllowAnyHeader();
+        .AllowAnyHeader()
+        .SetIsOriginAllowed(hostname => true)
+        ;
     });
 });
 
