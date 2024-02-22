@@ -44,14 +44,16 @@ namespace FruitShop.Services.User.Controllers
                 var lstParams = JsonConvert.DeserializeObject<List<string>>(requestMsg.Params);
                 var phone = lstParams[0];
                 var pw = lstParams[1];
+
                 var loginUser = await IUserBusiness.LoginAsync(phone, pw);
                 if (loginUser != null)
                 {
+                    var expired = DateTime.Now.AddHours(1);
                     var cookieOptions = new CookieOptions
                     {
                         // Set the cookie properties
                         Path = "/",
-                        Expires = DateTime.UtcNow.AddHours(1),
+                        Expires = expired,
                         Secure = true, // Use "false" if not using HTTPS
                         HttpOnly = true,
                         Domain = "localhost",
@@ -60,11 +62,12 @@ namespace FruitShop.Services.User.Controllers
 
                     Response.Cookies.Append("fshoplg", loginUser.Token, cookieOptions);
                     loginUser.Token = "";
+                    loginUser.TokenExpired = expired;
                     return Ok(loginUser);
                 }
                 else
                 {
-                    return NotFound("Không tìm thấy user");
+                    return Ok(null);
                 }
             }
             return Unauthorized();
