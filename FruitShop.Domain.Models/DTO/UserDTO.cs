@@ -17,5 +17,6 @@ namespace FruitShop.Domain.Models.DTO
         public string Token { get; set; }
         public DateTime? DeletedOn { get; set; }
         public DateTime TokenExpired { get; set; }
+        public string Avatar { get; set; }
     }
 }
