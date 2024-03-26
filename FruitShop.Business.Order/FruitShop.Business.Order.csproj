@@ -7,12 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.17" />
-    <PackageReference Include="MongoDB.Bson" Version="2.23.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="JSONHelper\" />
+    <ProjectReference Include="..\FruitShop.Business.Base\FruitShop.Business.Base.csproj" />
+    <ProjectReference Include="..\FruitShop.Domain.Models\FruitShop.Domain.Models.csproj" />
   </ItemGroup>
 
 </Project>

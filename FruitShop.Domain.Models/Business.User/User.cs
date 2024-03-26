@@ -1,7 +1,7 @@
 ﻿
 using FruitShop.Domain.Models.Business.Base;
 
-namespace Shoping.Data_Access.Models
+namespace FruitShop.Domain.Models.Business.User
 {
     public class User : MongoDBEntity
     {

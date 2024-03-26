@@ -5,15 +5,19 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FruitShop.Services.Gateway", "FruitShop.Services.Gateway\FruitShop.Services.Gateway.csproj", "{7E829A00-A37D-4CFE-B2EA-61670936EB4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FruitShop.Services.User", "FruitShop.Services.User\FruitShop.Services.User.csproj", "{2B3061A3-CC15-4E2A-B123-B849084DF896}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FruitShop.Services.User", "FruitShop.Services.User\FruitShop.Services.User.csproj", "{2B3061A3-CC15-4E2A-B123-B849084DF896}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FruitShop.Business.Base", "FruitShop.Business.Base\FruitShop.Business.Base.csproj", "{DC37FD96-B6FD-456F-ACCF-6E307A6EA2A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FruitShop.Business.Base", "FruitShop.Business.Base\FruitShop.Business.Base.csproj", "{DC37FD96-B6FD-456F-ACCF-6E307A6EA2A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FruitShop.Domain.DataAccess", "FruitShop.Domain.DataAccess\FruitShop.Domain.DataAccess.csproj", "{7F5ED71B-B663-477E-83F6-AD6C4213630C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FruitShop.Domain.DataAccess", "FruitShop.Domain.DataAccess\FruitShop.Domain.DataAccess.csproj", "{7F5ED71B-B663-477E-83F6-AD6C4213630C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FruitShop.Domain.Models", "FruitShop.Domain.Models\FruitShop.Domain.Models.csproj", "{3404C9C9-1452-49D2-A5C9-DFCF38C0DFD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FruitShop.Domain.Models", "FruitShop.Domain.Models\FruitShop.Domain.Models.csproj", "{3404C9C9-1452-49D2-A5C9-DFCF38C0DFD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FruitShop.Business.User", "FruitShop.Business.User\FruitShop.Business.User.csproj", "{8D80C383-858E-4AAC-90E8-0ACCBEEB8D79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FruitShop.Business.User", "FruitShop.Business.User\FruitShop.Business.User.csproj", "{8D80C383-858E-4AAC-90E8-0ACCBEEB8D79}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FruitShop.Services.Order", "FruitShop.Services.Order\FruitShop.Services.Order.csproj", "{7764B9AC-F753-4A5B-94F1-6B5C5EB55511}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FruitShop.Business.Order", "FruitShop.Business.Order\FruitShop.Business.Order.csproj", "{C350589A-E58C-41E0-A54F-3D125A31F4C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{8D80C383-858E-4AAC-90E8-0ACCBEEB8D79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D80C383-858E-4AAC-90E8-0ACCBEEB8D79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D80C383-858E-4AAC-90E8-0ACCBEEB8D79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7764B9AC-F753-4A5B-94F1-6B5C5EB55511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7764B9AC-F753-4A5B-94F1-6B5C5EB55511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7764B9AC-F753-4A5B-94F1-6B5C5EB55511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7764B9AC-F753-4A5B-94F1-6B5C5EB55511}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C350589A-E58C-41E0-A54F-3D125A31F4C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C350589A-E58C-41E0-A54F-3D125A31F4C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C350589A-E58C-41E0-A54F-3D125A31F4C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C350589A-E58C-41E0-A54F-3D125A31F4C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

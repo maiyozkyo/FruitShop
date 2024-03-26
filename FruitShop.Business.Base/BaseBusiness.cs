@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FruitShop.Domain.DataAccess.Context;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Shoping.Data_Access.DB.MongoDB;
 using Shoping.Data_Access.DB.UnitOfWork;
@@ -31,6 +32,11 @@ namespace Shoping.Business
                 case "MySQL":
                     {
 
+                        break;
+                    }
+                case "MSSQL":
+                    {
+                        dbContext = new MSSQLDBContext<TEntity>(iConfiguration, _dbName);
                         break;
                     }
                 default:

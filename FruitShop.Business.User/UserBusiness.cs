@@ -4,15 +4,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Shoping.Business;
-using Shoping.Data_Access.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using System.Text.Json;
 
 namespace FruitShop.Business.User
 {
-    public class UserBusiness : BaseBusiness<Shoping.Data_Access.Models.User>, IUserBusiness
+    public class UserBusiness : BaseBusiness<FruitShop.Domain.Models.Business.User.User>, IUserBusiness
     {
         private readonly string JWTSerect;
         public UserBusiness(IConfiguration iConfiguration) : base(iConfiguration)
@@ -45,7 +43,7 @@ namespace FruitShop.Business.User
             var addedUser = await Repository.GetOneAsync(x => x.Phone == phone);
             if (addedUser == null)
             {
-                var newUser = new Shoping.Data_Access.Models.User();
+                var newUser = new FruitShop.Domain.Models.Business.User.User();
                 newUser.Phone = phone;
                 newUser.Password = BCryptBusiness.Hash(password);
                 newUser.DeletedOn = null;
@@ -61,7 +59,7 @@ namespace FruitShop.Business.User
             return null;
         }
 
-        private async Task<Shoping.Data_Access.Models.User> CreateJWTTokenAsync(Shoping.Data_Access.Models.User user)
+        private async Task<FruitShop.Domain.Models.Business.User.User> CreateJWTTokenAsync(FruitShop.Domain.Models.Business.User.User user)
         {
             if (user != null)
             {

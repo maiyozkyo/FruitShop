@@ -61,7 +61,7 @@ namespace FruitShop.Services.User.Controllers
                     };
 
                     Response.Cookies.Append("fshoplg", loginUser.Token, cookieOptions);
-                    loginUser.Token = "";
+                    //loginUser.Token = "";
                     loginUser.TokenExpired = expired;
                     return Ok(loginUser);
                 }
